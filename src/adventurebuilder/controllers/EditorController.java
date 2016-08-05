@@ -39,7 +39,7 @@ public class EditorController {
 
     @FXML ChoiceBox listOfRooms = new ChoiceBox();
 
-    ObservableList<String> roomsListId = FXCollections.observableArrayList("Room List");
+    ObservableList<String> roomsListId = FXCollections.observableArrayList();
 
     //Items Tab
 
@@ -191,7 +191,7 @@ public class EditorController {
        listOfRooms.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
            @Override
            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-               roomTitle.setText(roomsList.get(t1.intValue()-1).getRoomShortTitle());
+               roomTitle.setText(roomsList.get(t1.intValue()).getRoomShortTitle());
                System.out.println("Selected: " + t1.toString());
                roomLocation = t1.toString();
            }
