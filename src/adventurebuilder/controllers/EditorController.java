@@ -39,7 +39,9 @@ public class EditorController {
 
     @FXML ChoiceBox listOfRooms = new ChoiceBox();
 
+    ArrayList<RoomModel> roomsList = new ArrayList<>();
     ObservableList<String> roomsListId = FXCollections.observableArrayList();
+    String roomLocation = "";
 
     //Items Tab
 
@@ -77,9 +79,9 @@ public class EditorController {
     Boolean roomsTabSelected = false;
     MapModel mapModel = new MapModel();
     TreeItem<String> rootItem = new TreeItem<>("ROOMS");
-    ArrayList<RoomModel> roomsList = new ArrayList<>();
+
     private static int roomINC = 1;
-    String roomLocation = "";
+
     StringBuilder roomEx, roomNp, roomIte;
 
 
@@ -191,9 +193,15 @@ public class EditorController {
        listOfRooms.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
            @Override
            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-               roomTitle.setText(roomsList.get(t1.intValue()).getRoomShortTitle());
+
+               RoomModel roomsDataIndex = roomsList.get(t1.intValue());
+
+               roomTitle.setText(roomsDataIndex.getRoomShortTitle());
+               roomExits.setText(roomsDataIndex.getRoomExits().toString());
+               directionRoom.setValue(roomLocation);
+
                System.out.println("Selected: " + t1.toString());
-               roomLocation = t1.toString();
+
            }
        });
 
@@ -218,6 +226,7 @@ public class EditorController {
 
 
        roomTitle.clear();
+       roomExits.clear();
 
        System.out.println("RoomList Size = "+roomsList.size());
        System.out.println("ChoiceBox Size = "+listOfRooms.getItems().size());
