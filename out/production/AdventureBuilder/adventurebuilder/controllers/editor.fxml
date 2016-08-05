@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adventurebuilder.controllers.EditorController">
+   <children>
+      <VBox layoutX="71.0" layoutY="74.0" prefHeight="275.0" prefWidth="470.0" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Load Adventure" />
+                  <MenuItem mnemonicParsing="false" text="Save Adventure" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Game">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Test Current" />
+                  <MenuItem mnemonicParsing="false" text="Clear All Settings" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="saveInfo" layoutX="171.0" layoutY="532.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="133.0" text="SAVE" />
+      <Button layoutX="496.0" layoutY="532.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="CANCEL" />
+      <TabPane layoutY="28.0" prefHeight="496.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Author Info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="386.0" prefWidth="613.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="661.0" text="Author Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane hgap="5.0" layoutX="4.0" layoutY="40.0" prefHeight="203.0" prefWidth="598.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Author">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Version" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Date" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="Difficulty" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Title" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="author" prefHeight="25.0" prefWidth="248.0" promptText="Author Name" GridPane.columnIndex="1" />
+                                    <TextField fx:id="version" promptText="Current version of game" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="title" promptText="Title of Adventure" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="difficulty" promptText="Difficulty level of adventure" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="date" layoutX="125.0" layoutY="24.0" prefHeight="25.0" prefWidth="248.0" promptText="Creation Date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                              <Label alignment="CENTER" layoutX="11.0" layoutY="243.0" prefHeight="25.0" prefWidth="640.0" text="Additional Notes">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea layoutX="69.0" layoutY="274.0" prefHeight="161.0" prefWidth="524.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text=" Game Info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="660.0" text="Game Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane hgap="5.0" layoutX="4.0" layoutY="40.0" prefHeight="331.0" prefWidth="646.0" vgap="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Rooms">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Npcs" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Items" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="Multiplier" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Max Score" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="rooms" prefHeight="25.0" prefWidth="248.0" promptText="Total number of rooms" GridPane.columnIndex="1" />
+                                    <TextField fx:id="items" promptText="Total number of items" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="npcs" promptText="Total number of npcs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="maxScore" promptText="Highest score reachable by player" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="scoreMultiplier" promptText="Score multiplier if any" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Game Introduction">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="690.0" text="Game Introduction">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="intro" layoutX="20.0" layoutY="34.0" prefHeight="401.0" prefWidth="620.0">
+                                 <!--<padding>-->
+                                    <!--<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />-->
+                                 <!--</padding>-->
+                              </TextArea>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="roomsTab" onSelectionChanged="#handle" text="Rooms">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: black; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="660.0" text="Room Data Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane hgap="5.0" layoutX="7.0" layoutY="38.0" prefHeight="184.0" prefWidth="646.0" vgap="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Room #">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Items" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Title" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Npcs" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="roomTitle" promptText="title of room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="roomItems" promptText="enter item ref numbers, seperated by commas" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="roomNpcs" promptText="enter npc ref numbers, seperated by commas" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Label alignment="CENTER" layoutX="20.0" layoutY="22.0" prefHeight="17.0" prefWidth="102.0" text="Direction" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="directionRoom" blendMode="SRC_ATOP" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" layoutX="20.0" layoutY="68.0" prefHeight="17.0" prefWidth="102.0" text="Exits" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="roomExits" layoutX="125.0" layoutY="41.0" promptText="Exits to what room numbers?" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="roomRefNumber" alignment="CENTER" prefHeight="20.0" prefWidth="99.0" text="1000" textFill="#e43333" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <Label alignment="CENTER" layoutX="2.0" layoutY="232.0" prefHeight="17.0" prefWidth="657.0" text="Room Description Short">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="roomLong" layoutX="9.0" layoutY="343.0" prefHeight="101.0" prefWidth="643.0" promptText="What player sees when first entering room or when typing &quot;look&quot;." />
+                              <Label alignment="CENTER" layoutX="2.0" layoutY="322.0" prefHeight="17.0" prefWidth="657.0" text="Room Description Long">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="roomShort" layoutX="9.0" layoutY="253.0" prefHeight="55.0" prefWidth="643.0" promptText="What player sees when having already visited the room." />
+                              <Button layoutX="166.0" layoutY="13.0" mnemonicParsing="false" onAction="#addRoom" text="Add Room" />
+                              <ChoiceBox fx:id="listOfRooms" layoutX="449.0" layoutY="13.0" prefWidth="150.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="itemsTab" onSelectionChanged="#itemsTabSelect" text="Items">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="661.0" text="Items Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane hgap="5.0" layoutX="4.0" layoutY="40.0" prefHeight="366.0" prefWidth="646.0" vgap="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Ref#">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Name" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="Score" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Used On" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="rooms111" prefHeight="25.0" prefWidth="248.0" promptText="reference number of item" GridPane.columnIndex="1" />
+                                    <TextField fx:id="items111" promptText="name of item" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="maxScore111" promptText="used on what items, if any" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="scoreMultiplier111" promptText="score value" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="108.0" text="Weight" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Description" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Description of item" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <ChoiceBox fx:id="itemWeightChoice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="npcsTab" onSelectionChanged="#npcsTabSelect" text="Npcs">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="70.0" layoutY="9.0" prefHeight="449.0" prefWidth="660.0" style="-fx-border-color: gray; -fx-background-color: lightgray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="659.0" text="NPC's Information">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <GridPane hgap="5.0" layoutX="4.0" layoutY="40.0" prefHeight="331.0" prefWidth="646.0" vgap="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Name">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Defense" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Alignment" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="Magic" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Attack" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="rooms1111" prefHeight="25.0" prefWidth="248.0" promptText="Total number of rooms in game." GridPane.columnIndex="1" />
+                                    <TextField fx:id="npcs1111" promptText="defense modifier if any" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="maxScore1111" promptText="attack modifier if any" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="scoreMultiplier1111" promptText="Magic rating if any" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER" layoutX="20.0" layoutY="246.0" prefHeight="17.0" prefWidth="108.0" text="Drops" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="System Bold Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="scoreMultiplier11111" layoutX="125.0" layoutY="243.0" promptText="item drops if any" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <ChoiceBox fx:id="npcsAlignmentChoice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="map" onSelectionChanged="#handle" text="Map">
+               <content>
+                  <Pane prefHeight="456.0" prefWidth="793.0" style="-fx-background-color: gray; -fx-border-color: black; -fx-border-width: 2px;">
+                     <children>
+                        <ScrollPane layoutX="169.0" layoutY="34.0" prefHeight="420.0" prefWidth="627.0">
+                           <content>
+                              <Canvas fx:id="canvas" height="1183.0" width="1195.0" />
+                           </content>
+                        </ScrollPane>
+                        <TreeView fx:id="roomTreeView" layoutY="34.0" prefHeight="421.0" prefWidth="165.0" style="-fx-border-color: black;">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#addRoomToMap" text="Add Room" />
+                                    <MenuItem mnemonicParsing="false" onAction="#delRoomFromMap" text="Delete Room" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TreeView>
+                        <Button fx:id="refresh" layoutX="27.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Update Map" />
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

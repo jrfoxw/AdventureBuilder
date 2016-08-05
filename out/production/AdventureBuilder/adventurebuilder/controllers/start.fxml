@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane fx:id="startPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adventurebuilder.controllers.StartController">
+   <children>
+      <VBox layoutX="234.0" layoutY="191.0" prefHeight="175.0" prefWidth="133.0" style="-fx-background-color: #4353A1;">
+         <children>
+            <Button fx:id="btnEditor" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="106.0" text="Editor">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnPlay" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Play Adventure">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="103.0" text="Quit">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="149.0" fitWidth="158.0" layoutX="226.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
